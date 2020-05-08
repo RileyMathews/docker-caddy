@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM centos:8
 RUN yum install yum-plugin-copr -y
 RUN yum copr enable @caddy/caddy -y
 RUN yum install caddy -y
