@@ -1,11 +1,11 @@
-FROM centos:8
+FROM rileymathews/base
 RUN yum install yum-plugin-copr -y
 RUN yum copr enable @caddy/caddy -y
 RUN yum install caddy -y
 COPY ./Caddyfile /etc/caddy/Caddyfile
 
-COPY ./entrypoint.sh /entrypoint-scripts/entrypoint.sh
-RUN chmod +x /entrypoint-scripts/entrypoint.sh
+COPY ./entrypoint.zsh /entrypoint-scripts/entrypoint.zsh
+RUN chmod +x /entrypoint-scripts/entrypoint.zsh
 
-ENTRYPOINT [ "/entrypoint-scripts/entrypoint.sh" ]
-CMD [ "/bin/bash" ]
+ENTRYPOINT [ "/entrypoint-scripts/entrypoint.zsh" ]
+CMD [ "/bin/zsh" ]
